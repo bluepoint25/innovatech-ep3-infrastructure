@@ -1,0 +1,19 @@
+---
+# Namespace para la aplicación
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: innovatech
+  labels:
+    name: innovatech
+    environment: production
+---
+# ConfigMap con URLs de servicios
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: innovatech
+data:
+  BACKEND_DESPACHOS_URL: "http://backend-despachos-service.innovatech.svc.cluster.local:8081"
+  BACKEND_VENTAS_URL: "http://backend-ventas-service.innovatech.svc.cluster.local:8082"
